@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Feedback Form</title>
+    <style>
+        body {
+            background-image: url('Quack.png');
+            background-size: cover;      
+    background-position: center;  
+    background-attachment: fixed;
+        }
+
+        .form-box {
+            background-color: #1e2640;
+            width: 100%;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #2dd4bf;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #334155;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        h3 {
+            color: #e2e8f0;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: #e2e8f0;
+        }
+
+        input[type="text"], 
+        input[type="number"], 
+        input[type="email"], 
+        select, 
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .options {
+            margin-top: 8px;
+        }
+
+        .options label {
+            display: block;
+            font-weight: normal;
+            margin-top: 8px;
+            color: #94a3b8;
+            cursor: pointer;
+        }
+
+        .options input {
+            margin-right: 10px;
+            accent-color: #2dd4bf;
+        }
+
+        .hidden-input {
+            display: none;
+            margin-top: 15px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        button[type="submit"] {
+            background-color: #2dd4bf;
+            color: #0f172a;
+        }
+
+        button[type="reset"] {
+            background-color: transparent;
+            border: 1px solid #334155;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-box">
+        <h1>Player Feedback Survey</h1>
+        
+            
+            <form action="https://script.google.com/macros/s/AKfycbytv0b2aZYFNf1TN5gbY8lG9f5iMIm1GlaI-LK5BUCqZdSVjYv6S2Za81J5bvInliZB/exec" method="POST">
+               
+                
+                    
+                
+
+            <div class="section">
+                <h3>1. Personal Information</h3>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="E.g., Barack Obama" required>
+
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" placeholder="E.g. 20~" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="name@example.com" required>
+            </div>
+
+            <div class="section">
+                <h3>2. General Questions</h3>
+                
+                <label>Gender Identity</label>
+                <div class="options">
+                    <label><input type="radio" name="gender" value="male" onclick="checkGender()"> Male</label>
+                    <label><input type="radio" name="gender" value="female" onclick="checkGender()"> Female</label>
+                    <label><input type="radio" name="gender" id="genderOther" value="other" onclick="checkGender()"> Other</label>
+                </div>
+                
+                <div id="genderTextBox" class="hidden-input">
+                    <label for="otherGenderText">Please specify your gender identity:</label>
+                    <input type="text" id="otherGenderText" name="otherGenderText" placeholder="How do you identify?">
+                </div>
+
+                <label>Will you invite friends and family to try the game?</label>
+                <div class="options">
+                    <label><input type="radio" name="invite" value="yes" required> Yes</label>
+                    <label><input type="radio" name="invite" value="no"> No</label>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>3. Gameplay Preferences</h3>
+                
+                <label>What device do you mainly use? (Select all that apply)</label>
+                <div class="options">
+                    <label><input type="checkbox" name="device" value="pc"> PC</label>
+                    <label><input type="checkbox" name="device" value="mobile"> Mobile</label>
+                    <label><input type="checkbox" name="device" value="xbox"> Xbox</label>
+                    <label><input type="checkbox" name="device" value="nintendo"> Nintendo</label>
+                    <label><input type="checkbox" name="device" value="playstation"> PlayStation</label>
+                </div>
+
+                <label>What did you like most about the update? (Select all that apply)</label>
+                <div class="options">
+                    <label><input type="checkbox" name="liked" value="story"> Story</label>
+                    <label><input type="checkbox" name="liked" value="characters"> New Characters</label>
+                    <label><input type="checkbox" name="liked" value="abilities"> New Abilities</label>
+                    <label><input type="checkbox" name="liked" value="location"> New Location</label>
+                    <label><input type="checkbox" name="liked" id="likeOther" value="other" onclick="checkLikes()"> Other</label>
+                </div>
+
+                <div id="likeTextBox" class="hidden-input">
+                    <label for="otherLikeText">What else did you like?</label>
+                    <input type="text" id="otherLikeText" name="otherLikeText" placeholder="What else did you like?">
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>4. Dropdown Menu</h3>
+                <label for="satisfaction">Update Satisfaction</label>
+                <select id="satisfaction" name="satisfaction" required>
+                    <option value="">Choose a rating...</option>
+                    <option value="1">1 - Highly Dissatisfied</option>
+                    <option value="2">2 - Dissatisfied</option>
+                    <option value="3">3 - Neutral</option>
+                    <option value="4">4 - Satisfied</option>
+                    <option value="5">5 - Highly Satisfied</option>
+                </select>
+            </div>
+
+            <div class="section">
+                <h3>5. Additional Feedback</h3>
+                <label for="feedback">Comments, suggestions, or extra feedback:</label>
+                <textarea id="feedback" name="feedback" rows="4" placeholder="Share your experiences with us..."></textarea>
+            </div>
+
+            <div class="buttons">
+                <button type="reset" onclick="clearOtherBoxes()">Reset</button>
+                <button type="submit">Submit Feedback</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function checkGender() {
+            var otherRadio = document.getElementById("genderOther");
+            var box = document.getElementById("genderTextBox");
+            
+            if (otherRadio.checked == true) {
+                box.style.display = "block";
+            } else {
+                box.style.display = "none";
+            }
+        }
+
+        function checkLikes() {
+            var otherCheckbox = document.getElementById("likeOther");
+            var box = document.getElementById("likeTextBox");
+            
+            if (otherCheckbox.checked == true) {
+                box.style.display = "block";
+            } else {
+                box.style.display = "none";
+            }
+        }
+
+        function clearOtherBoxes() {
+            document.getElementById("genderTextBox").style.display = "none";
+            document.getElementById("likeTextBox").style.display = "none";
+        }
+    </script>
+</body>
+</html>
